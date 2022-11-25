@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+:root{
+    --yellow:#f9d806;
+    --light-yellow:#ffee80;
+    --black:#130f40;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+    --border:.1rem solid rgba(0,0,0,.1);
+    --back:#000;
+    --blue: rgb(0, 132, 255);
+    --light-blue: rgb(0, 204, 255);
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+body::-webkit-scrollbar { width: 15px; }
+
+body::-webkit-scrollbar-track {
+  background: var(--white);
+  border-left: 1px solid var(--cultured);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: hsl(0, 0%, 80%);
+  border: 3px solid var(--white);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
+
+
+.login-form-container form{
+    margin-top:-3rem;
+    text-align: center;
+    padding:1.7rem;
+    width:30rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    border:var(--border);
+    background: #fff;
+}
+.login-form-container form .buttons a{
+    color: var(--back);
+    text-decoration: none;
+}
+.login-form-container form .btn{
+    display: block;
+    width:100%;
+    margin:.5rem 0;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);;
+    color: var(--back);
+
+}
+.login-form-container form .btn1{
+    display: block;
+    width:100%;
+    margin:.5rem 0;
+    background: linear-gradient(135deg, #71b7e6, #9b59b6);;
+    border-radius: 10px;
+    padding: .6rem;
+    align-items: center;
+    justify-content: center;
+}
+.login-form-container form .btn1:hover, .login-form-container form .btn:hover{
+    background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+.login-form-container form .box{
+    margin:.7rem 0;
+    width: 100%;
+    color:var(--black);
+    text-transform: none;
+    border:var(--border);
+    padding:1rem 1.2rem;
+    border-radius: .5rem;
+}
+
+.login-form-container form p{
+    padding:1rem 0;
+    color:var(--light-color);
+}
+
+.login-form-container form p a{
+    color:var(--blue);
+    text-decoration: underline;
+}
+
+.login-form-container form h3{
+    padding-bottom:1rem;
+    color:var(--black);
+    text-transform: uppercase;
+}

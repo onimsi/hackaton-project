@@ -1612,12 +1612,9 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
 
 footer {
   background: var(--eerie-black);
-  padding: 30px 0;
 }
 
 .footer-category {
-  margin-bottom: 30px;
-  padding-bottom: 15px;
   border-bottom: 1px solid var(--onyx);
 }
 
@@ -1739,7 +1736,6 @@ footer {
 .social-link .footer-nav-link { font-size: 25px; }
 
 .footer-bottom {
-  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -1747,7 +1743,7 @@ footer {
   max-width: 335px;
   width: 100%;
   margin: auto;
-  margin-bottom: 15px;
+  /* margin-bottom: 15px; */
 }
 
 .copyright {
@@ -1762,10 +1758,6 @@ footer {
   display: inline;
   color: inherit;
 }
-
-
-
-
 
 /*-----------------------------------*\
   #RESPONSIVE
@@ -2622,7 +2614,6 @@ footer {
   footer { padding-top: 50px; }
 
   .footer-category {
-    margin-bottom: 50px;
     padding-bottom: 35px;
   }
 

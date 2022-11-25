@@ -66,3 +66,14 @@ gsap.from(".team_img_wrapper img", {
   delay: 3,
   duration: 1,
 });
+
+// fixed header
+
+jQuery(window).scroll(function(){
+  if (jQuery(window).scrollTop() >= 10) {
+     jQuery('#home').addClass('fixed-header');
+  }
+  else {
+     jQuery('#home').removeClass('fixed-header');
+  }
+});
