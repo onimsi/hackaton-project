@@ -86,3 +86,11 @@ for (let i = 0; i < accordionBtn.length; i++) {
   });
 
 }
+let jobBtn = document.getElementById('#jobbtn')
+let pendBtn = document.getElementById('#pendbtn')
+let job = document.getElementById('#job')
+
+pendBtn.addEventListener('click', () => {
+  job.innerHtml = 'hello';
+})
+
