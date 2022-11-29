@@ -1239,7 +1239,13 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
 /*-----------------------------------*\
   #PRODUCT GRID
 \*-----------------------------------*/
-
+.btn{
+  background: var(--salmon-pink);
+  padding: 2px;
+  width: 50px;
+  border-radius: 10px;
+  color: #fff;
+}
 .product-main { margin-bottom: 30px; }
 
 .product-grid {
@@ -1369,10 +1375,11 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
 
 .product-grid .price-box {
   display: flex;
-  gap: 10px;
+  gap: 30px;
   font-size: var(--fs-7);
   color: var(--eerie-black);
   margin-bottom: 10px;
+  align-items: center;
 }
 
 .product-grid .price { font-weight: var(--weight-700); }

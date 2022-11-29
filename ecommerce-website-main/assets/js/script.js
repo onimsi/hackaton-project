@@ -86,11 +86,19 @@ for (let i = 0; i < accordionBtn.length; i++) {
   });
 
 }
-let jobBtn = document.getElementById('#jobbtn')
-let pendBtn = document.getElementById('#pendbtn')
-let job = document.getElementById('#job')
+let btnText = document.querySelector('#btnText');
+let btnHtml = document.querySelector('#btnHtml');
+let content = document.querySelector('#content');
+let paragraph = document.querySelector('p');
 
-pendBtn.addEventListener('click', () => {
-  job.innerHtml = 'hello';
-})
+btnText.addEventListener('click', () => {
+    paragraph.innerText = 'Hello World';
+});
+
+btnHtml.addEventListener('click', () => {
+    content.innerHTML = '<h1>Hello World</h1>';
+});
+
+
+
 
