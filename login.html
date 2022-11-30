@@ -12,14 +12,14 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
   </head>
   <body>
      <div class="login-form-container">
-      <form action="">
+        <form action="#" id="ourForm" >
           <h3>user login</h3>
-          <input type="email" placeholder="Email" class="box">
-          <input type="password" placeholder="Password" class="box">
+          <input type="email" placeholder="Email" class="box" id="mail">
+          <input type="password" placeholder="Password" class="box" id="password">
           <p> forget your password <a href="./ecommerce-website-main/index.html">click here</a> </p>
           <input type="submit" value="login" class="btn">
           <p>or login with</p>
@@ -27,9 +27,53 @@
               <a href="#" class="btn1"> google </a>
           </div>
           <p> don't have an account <a href="./client_reg.html">create one</a> </p>
-      </form>
+        </form>
   
-  </div>
+      </div>
+
+
+    <script>
+      // form validation
+      const email= document.getElementById("mail")
+      email.addEventListener("input",(e)=>{
+        if(email.validity.typeMismatch){
+          email.setCustomValidity("Input a valid Email");
+          email.reportValidity();
+        } else{
+          email.setCustomValidity(" ");
+        }
+      });
+
+
+      // login validation
+      let pass = document.getElementById("password")
+      
+     
+      
+     
+
+      // working with the data
+      const ourForm= document.getElementById("ourForm")
+
+      ourForm.addEventListener('submit', function(e){
+       e.preventDefault()  //prevent page from reloading when form is submitted or prevent the form from been sent by canceling the event
+      
+       formData = new formData(this); // making a new form data object based on the main form
+
+      fetch(URL, {
+        method: "post",
+        body: JSON.stringify(formData)
+      })
+        .then((response) => response.json())
+
+        .then((formData) => {
+          console.log('Success:', formData);
+         })
+        .catch((error) => {
+          console.error('Somthing went wrong', error);
+        });
+     })
+    </script>
 
   </body>
 </html>
