@@ -68,7 +68,7 @@ app.post('/register', main.register);
  * @swagger
  * /edit_profile/{id}:
  *  patch:
- *      summary: To edit user profile
+ *      summary: To edit one user profile
  *      description: This route is to edit the detials of one user
  *      parameters:
  *          - in: path
