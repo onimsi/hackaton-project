@@ -21,9 +21,9 @@
           <input type="email" placeholder="Email" class="box" id="mail">
           <input type="password" placeholder="Password" class="box" id="password">
           <p> forget your password <a href="./ecommerce-website-main/index.html">click here</a> </p>
-          <input type="submit" value="login" class="btn">
+          <button type="button"  class="btn" onclick="check()">log in</button>
           <p>or login with</p>
-          <div class="buttons">
+          <div class="buttons" >
               <a href="#" class="btn1"> google </a>
           </div>
           <p> don't have an account <a href="./client_reg.html">create one</a> </p>
@@ -33,6 +33,7 @@
 
 
     <script>
+      const baseUrl = 'http://localhost:5000'
       // form validation
       const email= document.getElementById("mail")
       email.addEventListener("input",(e)=>{
@@ -46,33 +47,43 @@
 
 
       // login validation
-      let pass = document.getElementById("password")
-      
-     
-      
-     
+      function check(){
+        
+        const email = document.getElementById("mail").value
+        const password = document.getElementById("password").value
 
-      // working with the data
-      const ourForm= document.getElementById("ourForm")
+        const loginObj = {email, password}
 
-      ourForm.addEventListener('submit', function(e){
-       e.preventDefault()  //prevent page from reloading when form is submitted or prevent the form from been sent by canceling the event
-      
-       formData = new formData(this); // making a new form data object based on the main form
+        console.log(loginObj)
 
-      fetch(URL, {
+      localStorage.setItem('loginObj', JSON.stringify(obj)) 
+
+      fetch(`${baseUrl}/login`, {
         method: "post",
-        body: JSON.stringify(formData)
+        body: JSON.stringify(loginObj)
       })
         .then((response) => response.json())
 
-        .then((formData) => {
-          console.log('Success:', formData);
+        .then((loginObj) => {
+          console.log('Success:', loginObj);
          })
         .catch((error) => {
           console.error('Somthing went wrong', error);
         });
-     })
+      
+      }
+
+
+
+      // // working with the data
+      // const ourForm= document.getElementById("ourForm")
+
+      // ourForm.addEventListener('submit', function(e){
+      //  e.preventDefault()  //prevent page from reloading when form is submitted or prevent the form from been sent by canceling the event
+      
+      //  formData = new FormData(this); // making a new form data object based on the main form
+
+      
     </script>
 
   </body>

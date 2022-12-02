@@ -12,64 +12,64 @@
   <div class="container">
     <div class="title">Registration</div>
     <div class="content">
-      <form action="#">
+      <form action="#" class="regFORM">
         <div class="user-details">
           <div class="input-box">
             <span class="details">First Name <span class="star">*</span></span>
             <!--check name convention-->
-            <input type="text" name="fName" placeholder="Enter your name" required>  
+            <input type="text" name="fName" id="fName" placeholder="Enter your name" required>  
           </div>
           <div class="input-box">
             <span class="details">Last Name <span class="star">*</span></span>
-            <input type="text" name="lName" placeholder="Enter your username" required>
+            <input type="text" name="lName" id="lName" placeholder="Enter your name" required>
           </div>
 
 
           <div class="input-box">
             <span class="details">Email <span class="star">*</span></span>
-            <input type="email"  name="email" placeholder="Enter your email" required>
+            <input type="email"  name="email" id="email" placeholder="Enter your email" required>
           </div>
 
 
           <div class="input-box">
             <span class="details">Phone Number <span class="star">*</span></span>
-            <input type="text"  name="number" placeholder="Enter your number" required>
+            <input type="text"  name="number" id="number" placeholder="Enter your number" required>
           </div>
 
 
           <div class="input-box">
             <span class="details">Password <span class="star">*</span></span>
-            <input type="password"  name="password" placeholder="Enter your password" required>
+            <input type="password"  name="password" id="password" placeholder="Enter your password" required>
           </div>
 
 
           <div class="input-box">
             <span class="details">Confirm Password <span class="star">*</span></span>
-            <input type="password"  name="confirm" placeholder="Confirm your password" required>
+            <input type="password"  name="confirm" id="confirm" placeholder="Confirm your password" required>
           </div>
 
 
           <div class="input-box">
             <span class="details">City <span class="star">*</span></span>
-            <input type="text"  name="city" placeholder="City" required name="">
+            <input type="text"  name="city" id="city" placeholder="City" required name="">
           </div>
 
 
           <div class="input-box">
             <span class="details">Postal Code</span>
-            <input type="password"  name="pcode" placeholder="123456">
+            <input type="password"  name="pcode" id="pcode" placeholder="123456">
           </div>
 
 
           <div class="input-box">
             <span class="details">Job Description (For Service Providers) <span class="star">*</span></span>
-          <textarea rows="10" cols="142" name="jdescription"  placeholder="What Service are you providing ?"></textarea>
+          <textarea rows="10" cols="142" name="jobDes" id="jobDes"  placeholder="What Service are you providing ?"></textarea>
         </div>
 
 
         <div class="input-box">
           <span class="details">DOB <span class="star">*</span></span>
-          <input type="date"  name="dob" placeholder="Confirm your password" required>
+          <input type="date"  name="dob" id="dob" placeholder="Confirm your password" required>
         </div>
 
 
@@ -81,14 +81,76 @@
 
 
         </div>
-        
+<!--         
         <div class="button">
           <input type="submit" value="Register">
-        </div>
+        </div> -->
+        <div class="buttpn"><button type="button" onclick="btn()"> Register</button></div>
         <p style="text-align: center; justify-content: center; font-size: 20px;"> Already have an account <a href="./login.html">Login</a> </p>
       </form>
     </div>
   </div>
+  <script>
+
+    const regUrl = 'http://localhost:5000'
+     function btn(){
+
+      const fName = document.querySelector("#fName").value
+      const lName = document.querySelector("#lName").value
+      const phone = document.querySelector("#number").value
+      const conPass = document.querySelector("#confirm").value
+      const city = document.querySelector("#city").value
+      const pcode = document.querySelector("#pcode").value
+      const username = document.querySelector("#email").value
+      const jobDes = document.querySelector("#jobDes").value
+      const dob = document.querySelector("#dob").value
+      
+
+      const regObj = {
+        fName, 
+        lName,
+        phone,
+        conPass,
+        city,
+        pcode,
+        username, 
+        jobDes, 
+        dob
+      }
+
+      // console.log(regObj)
+      
+
+      
+      localStorage.setItem('regObj', JSON.stringify(regObj))
+
+      fetch(`${regUrl}/register`, {
+        method: "post",
+        body: JSON.stringify(regObj)
+      })
+        .then((response) => response.json())
+
+        .then((regObj) => {
+          console.log('Success:', regObj);
+         })
+        .catch((error) => {
+          console.error('Somthing went wrong', error);
+        });
+     }
+
+
+
+
+     // consuming the api 
+
+    //  const regFORM= document.getElementById("regFORM")
+
+    //  regFORM.addEventListener('submit', function(e){
+    //    e.preventDefault()
+      
+    //    regData = new FormData(this); 
+ 
+  </script>
  
 
 
